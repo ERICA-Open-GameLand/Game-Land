@@ -42,8 +42,8 @@ public class PieceButton extends JButton implements ActionListener{
     
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(!game_start){
-			frame.timerStart();
+		if(!game_start){  
+			frame.timerStart();  // 시간체크 시작 
 			game_start = true;
 		}
 		if(!revealed) {			

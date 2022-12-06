@@ -70,16 +70,19 @@ public class BoardFrame extends JFrame {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 	
-	public void timerStart() {
+	/** 
+	 * 시간 체크 시작 및 1초(1000ms)마다 업데이
+	 */
+	public void timerStart() { 
 		sTimer = new Timer(1000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {						
-				timer.increaseTime();
-				current_time.setText(timer.getTime()+"s");
+				timer.increaseTime();	// timer 객체 시간 1초 증가 
+				current_time.setText(timer.getTime()+"s"); // 현재 초를 불러와서 timer label에 세
 			}
 		});
-		sTimer.start(); 
-		sTimer.setRepeats(true);
+		sTimer.start();  // swing 타이머 시작 
+		sTimer.setRepeats(true); // 반복 : true
 	}
 	
 	public void firstColor(int r, int c) {
