@@ -2,21 +2,22 @@ package matching_game;
 
 import java.awt.Color;
 import java.awt.event.*;
-import java.util.EventListener;
 
 import javax.swing.*;
 
 public class PieceButton extends JButton implements ActionListener{
 	
 	private Color color;
-    private boolean revealed, reveal;
-    private static int open_piece_count;
+    private boolean revealed, game_start;
+    private int row, col; 
+    private static boolean selected;
     private BoardFrame frame;
 
-    public PieceButton(Color c, BoardFrame b) {
+    public PieceButton(Color c, BoardFrame b, int r, int co) {
         color = c;
         frame= b;
-        System.out.println("this");
+        row =r;
+        col = co;
         addActionListener(this);
     }
     
@@ -24,39 +25,45 @@ public class PieceButton extends JButton implements ActionListener{
     	return color;
     }
 
-    public void setRevealFalse() {
-    	reveal = false;
+    public void hide() {
     	this.setBackground(Color.white);
+		setOpaque(true);			
+		setBorderPainted(true);
     	
     }
-    public void setRevealTrue() {
-    	System.out.println(color);
-    	reveal = true;
-    	this.setText("11");
+    public void show() {
     	setBackground(color);
+		setOpaque(true);			
+		setBorderPainted(false);
     }
-    public boolean reveal() {
-    	return reveal;
+    public void setRevealed() { 
+        revealed = true; 
     }
-    
-    public void setRevealed() {
-    	revealed = true;
-    }
-    public boolean revealed() { 
-        return revealed; 
-    }
-    
     
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(open_piece_count >= 2) {
-			open_piece_count= 0;
-			
+		if(!game_start){
+			frame.timerStart();
+			game_start = true;
 		}
-		else if(revealed == false) {
-			setRevealTrue();
-			open_piece_count++;
-			frame.update();
+		if(!revealed) {			
+			show();
+			if(selected) { // 두번째 선택된 버튼 
+				selected = false;
+				
+				Timer timer = new Timer(1000, new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {						
+						frame.compareColor(row, col);
+					}
+				});
+				timer.start(); 
+				timer.setRepeats(false);
+			}
+			else { // 첫번째 선택된 버튼
+				selected = true;
+				frame.firstColor(row, col);
+			}
 		}
 	}
 }

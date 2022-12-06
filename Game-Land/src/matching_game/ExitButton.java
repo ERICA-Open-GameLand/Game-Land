@@ -5,19 +5,15 @@ import javax.swing.*;
 
 public class ExitButton extends JButton implements ActionListener {
 	
-	private boolean end = false; 
+	private BoardFrame frame;
 	
-	public ExitButton(String label) {
+	public ExitButton(String label, BoardFrame f) {
 		super(label);
+		frame = f;
         addActionListener(this);
 	}
-	
-	public boolean end() {
-		return end;
-	}
-	
     public void actionPerformed(ActionEvent e) {
-		end = true;
+    	frame.exitGame();
 	}
 	
 }

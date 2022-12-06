@@ -30,15 +30,13 @@ public class GameBoard {
         makeSquare(shuffle(twins));
     }
     
-    
-    
     private void makeSquare(Color[] piece_color) {
         // to be filled...
     	int now_piece = 0;
     	
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 4; j++) {
-				square[i][j] = new PieceButton(piece_color[now_piece++], frame);
+				square[i][j] = new PieceButton(piece_color[now_piece++], frame, i, j);
 			}
 		}
     }
