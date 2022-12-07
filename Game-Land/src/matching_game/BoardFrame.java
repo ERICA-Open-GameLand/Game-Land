@@ -29,8 +29,8 @@ public class BoardFrame extends JFrame {
 		
 		// 타이머 설정 (default : 00:00s)
 		timer = new GameTimer(best_time);
-		current_time = new JLabel("Current " + (timer.getTime())+"s");
-		JLabel best_timer = new JLabel("Best Time " + timer.getBestTime()+"s");
+		current_time = new JLabel("Current " + (timer.getTime()));
+		JLabel best_timer = new JLabel("Best Time " + timer.getBestTime());
 		JPanel timer_panel = new JPanel(new GridLayout());	// Panel
 		Box timer_box = Box.createVerticalBox();
 		current_time.setAlignmentX(RIGHT_ALIGNMENT);
@@ -78,7 +78,7 @@ public class BoardFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {						
 				timer.increaseTime();	// timer 객체 시간 1초 증가 
-				current_time.setText(timer.getTime()+"s"); // 현재 초를 불러와서 timer label에 세
+				current_time.setText(timer.getTime()); // 현재 초를 불러와서 timer label에 세
 			}
 		});
 		sTimer.start();  // swing 타이머 시작 
