@@ -2,9 +2,11 @@ package gui.userInfo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 
+import gui.gameLauncher.GameLauncherGUI;
 import gui.userInfo.UserInfoGUI;
 
 public class UserInfoButton extends JButton implements ActionListener {
@@ -43,6 +45,19 @@ public class UserInfoButton extends JButton implements ActionListener {
 
         // 디버깅 코드
         System.out.println(userInfo.getUserName() +" " + userInfo.getUserAge());
+
+        // userInfo GUI 가리기
+        userInfo_gui.gui_unVisible();
+
+        // GameLauncherGUI 페이지로 전환
+        try {
+            new GameLauncherGUI(userInfo);
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+
 
 
 

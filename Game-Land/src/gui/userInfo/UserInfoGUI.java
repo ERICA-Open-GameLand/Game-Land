@@ -57,7 +57,7 @@ public class UserInfoGUI extends JFrame {
         userInfo_textField = new JTextField[2];
 
         // 유저 정보 (Name & Age) 의 TextField를 담는 패널 생성 - GridLayout
-        JPanel p_userInfoTextField = new JPanel(new GridLayout(2,2, 10, 10));
+        JPanel p_userInfoTextField = new JPanel(new GridLayout(2,2, 50, 100));
 
 
         /*
@@ -98,7 +98,7 @@ public class UserInfoGUI extends JFrame {
             TO DO. JPanel 크기 설정 (GridLayout 요소 크기를 작게 하기)
          */ 
         // p_userInfoTextField.setPreferredSize(new DimensionUIResource(100, 100));
-        p_userInfoTextField.setBorder(BorderFactory.createEmptyBorder(0,0,0,100));
+        p_userInfoTextField.setBorder(BorderFactory.createEmptyBorder(50,0,50,100));
         cp.add(p_userInfoTextField, BorderLayout.CENTER);
 
 
@@ -136,6 +136,13 @@ public class UserInfoGUI extends JFrame {
         setVisible(true);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+
+
+
+    // gui 가리기
+    public void gui_unVisible(){
+        this.setVisible(false);
     }
 
 
