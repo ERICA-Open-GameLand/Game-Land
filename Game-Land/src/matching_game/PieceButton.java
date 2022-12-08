@@ -8,9 +8,9 @@ import javax.swing.*;
 public class PieceButton extends JButton implements ActionListener{
 	
 	private Color color;
-    private boolean revealed, game_start;
+    private boolean revealed;
     private int row, col; 
-    private static boolean selected;
+    private static boolean selected, game_start;
     private BoardFrame frame;
 
     public PieceButton(Color c, BoardFrame b, int r, int co) {
@@ -51,14 +51,20 @@ public class PieceButton extends JButton implements ActionListener{
 			if(selected) { // 두번째 선택된 버튼 
 				selected = false;
 				
-				Timer timer = new Timer(1000, new ActionListener() {
+				Timer timer = new Timer(0, new ActionListener() {
 					@Override
-					public void actionPerformed(ActionEvent e) {						
+					public void actionPerformed(ActionEvent e) {
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e1) {
+							e1.printStackTrace();
+						}
 						frame.compareColor(row, col);
 					}
 				});
 				timer.start(); 
 				timer.setRepeats(false);
+				
 			}
 			else { // 첫번째 선택된 버튼
 				selected = true;

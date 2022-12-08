@@ -8,11 +8,6 @@ public class GameBoard {
 	private BoardFrame frame;
 	
     public PieceButton[][] square() { 
-    	for(int i = 0 ; i < 4; i++) {
-    		for(int j = 0; j < 4; j++) {
-    			System.out.println(square[i][j].color());
-    		}
-    	}
         return square; 
     }
     

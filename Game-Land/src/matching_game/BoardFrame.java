@@ -9,14 +9,15 @@ import javax.swing.*;
 public class BoardFrame extends JFrame {
 	
 	private GameTimer timer; // 타이머 객체 (시간을 관리하고 포멧을 리턴)
-	private JLabel current_time; // 시간 라벨 
-	private Timer sTimer; // 스윙 타이머 객체 (1초에 한 번 실행)
+	private MatchingGameStarter starter;
+//	private JLabel current_time; // 시간 라벨 
 	private PieceButton[][] board;
 	private int row, col; // 가로세로게임 행, 열 갯수 (추가 가능 확장가)
 	private int first_row, first_col; // 첫번째로 고른 row, col  만약 아무것도 선택되지 않았다면 -1 의 값을 가짐 
 	private int opened_piece; // 현재까지 열린 칸의 갯수 (16이면 게임 종료)
 	
-	public BoardFrame(long best_time) {
+	public BoardFrame(int best_time, MatchingGameStarter m) {
+		starter = m;
 		Container cp = getContentPane();
 		BorderLayout layout = new BorderLayout();
 		cp.setLayout(layout);
@@ -28,8 +29,8 @@ public class BoardFrame extends JFrame {
 		title.add(label);
 		
 		// 타이머 설정 (default : 00:00s)
-		timer = new GameTimer(best_time);
-		current_time = new JLabel("Current " + (timer.getTime()));
+		JLabel current_time = new JLabel();
+		timer = new GameTimer(best_time, current_time);
 		JLabel best_timer = new JLabel("Best Time " + timer.getBestTime());
 		JPanel timer_panel = new JPanel(new GridLayout());	// Panel
 		Box timer_box = Box.createVerticalBox();
@@ -74,15 +75,10 @@ public class BoardFrame extends JFrame {
 	 * 시간 체크 시작 및 1초(1000ms)마다 업데이
 	 */
 	public void timerStart() { 
-		sTimer = new Timer(1000, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {						
-				timer.increaseTime();	// timer 객체 시간 1초 증가 
-				current_time.setText(timer.getTime()); // 현재 초를 불러와서 timer label에 세
-			}
-		});
-		sTimer.start();  // swing 타이머 시작 
-		sTimer.setRepeats(true); // 반복 : true
+		timer.start();
+	}
+	private void endGame() {
+		timer.stop_timer();
 	}
 	
 	public void firstColor(int r, int c) {
@@ -105,20 +101,29 @@ public class BoardFrame extends JFrame {
 		}
 	}
 	
-	private void endGame() {
-		sTimer.stop();
-	}
-	
 	/**
 	 * Exit 버튼 클릭시 실행 
 	 * @return 게임을 클리어 했을 시 시간 리턴 (long 타입),클리어 못했을 시 0 리
 	 */
-	public long exitGame() { 
-		if(opened_piece >= 16)
-			return timer.getNumberTime();
-		else {
-			return 0;
+	public void exitGame() { 
+		if (timer.getNumberTime() != 0)
+			endGame();
+		System.out.println(timer.getNumberTime());
+		if(opened_piece >= 16) {
+			if(timer.getNumberBestTime() < timer.getNumberTime() && timer.getNumberBestTime() != 0) {
+				JOptionPane.showMessageDialog(null, "걸린 시간 - "+ timer.getTime());
+				starter.setTime(timer.getNumberBestTime());
+			}
+			else { 
+				JOptionPane.showMessageDialog(null, "최고기록 갱신!!\n걸린시간 - "+ timer.getTime());
+				starter.setTime(timer.getNumberTime());
+			}
 		}
+		else {
+			JOptionPane.showMessageDialog(null, "Game Over");
+			starter.setTime(timer.getNumberBestTime());
+		}
+		System.exit(0);
 		
 	}
 }
