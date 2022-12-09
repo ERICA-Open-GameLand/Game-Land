@@ -4,8 +4,8 @@ public class PuzzleStarter {
 
     private int best_time;
 
-    public static void main(String[] args) {
-        new PuzzleFrame(new SlidePuzzleBoard(), 0);
+    public void slidePuzzleGameStart(int bt) {
+        new PuzzleFrame(new SlidePuzzleBoard(), bt);
     }
     /*public void bestTime(int t) {
         best_time = t;

@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import gui.over.GameOverGUI;
 import gui.userInfo.UserInfo;
 import gui.userInfo.UserInfoGUI;
+import sudoku.SudokuPuzzle;
 
 public class SudokuButton extends JButton implements ActionListener {
 	
@@ -34,9 +35,11 @@ public class SudokuButton extends JButton implements ActionListener {
         else{
             /*
              * TO DO
-             * BlackJack 게임 객체로 전환
+             * Sudoku 게임 객체로 전환
              */
-            System.out.println("12312312"); 
+             game_launcher_gui.gui_unVisible();
+             userInfo.gameCoins = userInfo.gameCoins - 1;
+            new SudokuPuzzle().sudokuStarter();
         }
 
 

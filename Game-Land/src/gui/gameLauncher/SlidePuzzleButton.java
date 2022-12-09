@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import SlidePuzzleGame.PuzzleStarter;
 import gui.over.GameOverGUI;
 import gui.userInfo.UserInfo;
 import gui.userInfo.UserInfoGUI;
@@ -34,9 +35,11 @@ public class SlidePuzzleButton extends JButton implements ActionListener {
         else{
             /*
              * TO DO
-             * BlackJack 게임 객체로 전환
+             * slidePuzzleGame 게임 객체로 전환
              */
-            System.out.println("12312312"); 
+             game_launcher_gui.gui_unVisible();
+             userInfo.gameCoins = userInfo.gameCoins - 1;
+             new PuzzleStarter().slidePuzzleGameStart(userInfo.slidePuzzleTime);
         }
 
 
