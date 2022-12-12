@@ -60,7 +60,7 @@ public class GameTimer extends Thread{
 	 * @return 만약 분이나 초가 한 자리 숫자라면 앞에 '0'을 써준다 -> 02:04s
 	 */
 	private String timerFormat(int l) {
-		long min=0, sec=0;
+		int min=0, sec=0;
 		if(l >=60 ) {
 			min = l/60;
 		}
@@ -70,7 +70,7 @@ public class GameTimer extends Thread{
 	}
 	
 	// 최소 시간을 리턴한다.
-	public long bestTime() {
+	public int bestTime() {
 		return best_time;
 	}
 	
