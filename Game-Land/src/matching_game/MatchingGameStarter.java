@@ -2,10 +2,13 @@ package matching_game;
 
 import java.util.Optional;
 
+import gui.gameLauncher.GameLauncherGUI;
 import gui.userInfo.UserInfo;
 
 public class MatchingGameStarter {
 	private UserInfo user_info;
+	private BoardFrame frame;
+	private GameLauncherGUI gui;
 //	// test
 //	public static void main(String[] args) {
 //		// TODO Auto-generated method stub
@@ -14,12 +17,16 @@ public class MatchingGameStarter {
 	
 	
 	// matching game starter에 UserInfo 넘겨 줄 것!
-	public void startMatchingGame(UserInfo us) {
+	public void startMatchingGame(UserInfo us,GameLauncherGUI g) {
 		user_info = us;
-		new BoardFrame(Long.valueOf(Optional.ofNullable(user_info.matchingGameTime).orElse(0L)).intValue(), this);
+		gui = g;
+		frame = new BoardFrame(Long.valueOf(Optional.ofNullable(user_info.matchingGameTime).orElse(0L)).intValue(), this);
 	}
 	public void setTime(int i) {
 		user_info.matchingGameTime = i;
+		frame.setVisible(false);
+		gui.setVisible(true);
+		gui.gui_update();
 	}
 
 }
