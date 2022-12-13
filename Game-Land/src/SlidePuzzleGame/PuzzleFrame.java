@@ -1,6 +1,7 @@
 package SlidePuzzleGame;
 
 import gui.gameLauncher.GameLauncherGUI;
+import gui.over.GameOverGUI;
 import gui.userInfo.UserInfo;
 
 import javax.swing.*;
@@ -19,7 +20,10 @@ public class PuzzleFrame extends JFrame {
     private UserInfo userInfo;
     private GameLauncherGUI launcherGUI;
 
+    private GameOverGUI overGUI;
+
     public PuzzleFrame(UserInfo ui, GameLauncherGUI gl, SlidePuzzleBoard b, int best_time) {
+        PuzzleFrame frame = this;
         userInfo = ui;
         launcherGUI = gl;
         board = b;
@@ -83,12 +87,12 @@ public class PuzzleFrame extends JFrame {
                 if(board.gameOver()) {
                     if (userInfo.slidePuzzleTime != 0) {
                         userInfo.slidePuzzleTime = timer.bestTime();
-
+                        frame.setVisible(false);
                         launcherGUI.setVisible(true);
                         launcherGUI.gui_update();
-                    }
-                    else {
+                    } else {
                         userInfo.slidePuzzleTime = timer.thisTime();
+                        frame.setVisible(false);
                         launcherGUI.setVisible(true);
                         launcherGUI.gui_update();
                     }
@@ -96,6 +100,7 @@ public class PuzzleFrame extends JFrame {
                 else {
                     JOptionPane.showMessageDialog(null, "게임이 끝나지 않았습니다. \n" +
                             " 게임은 기록되지 않습니다. ");
+                    frame.setVisible(false);
                     launcherGUI.setVisible(true);
                     launcherGUI.gui_update();
                 }
