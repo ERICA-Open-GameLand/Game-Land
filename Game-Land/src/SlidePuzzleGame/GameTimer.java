@@ -1,9 +1,11 @@
 package SlidePuzzleGame;
 
+import gui.userInfo.UserInfo;
+
 public class GameTimer {
 
-    public int this_time;
-    public int best_time;
+    private int this_time;
+    private int best_time;
 
     /**
      * Timer 생성자 : 최소시간을 기록해 둔다.
@@ -17,9 +19,9 @@ public class GameTimer {
         return timerFormat(this_time);
     }
 
-   /*public int getNumberTime() {
+   public int thisTime() {
         return this_time;
-    }*/
+    }
 
     /**
      * @return : 현재시간을 1초 증가시킨다.
