@@ -36,7 +36,7 @@ public class MatchingButton extends JButton implements ActionListener {
              * TO DO
              * BlackJack 게임 객체로 전환
              */
-            System.out.println("12312312"); 
+            
         }
 
 

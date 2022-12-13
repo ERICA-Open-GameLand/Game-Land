@@ -59,7 +59,7 @@ public class StartGUI extends JFrame {
         /*
          * To Do 1 - 2. 이미지 JLabel로 구현
         */
-        File imgFile = new File("Game-Land/Game-Land/src/gui/image/controller.jpg");
+        File imgFile = new File("src/gui/image/controller.jpg");
         // 이미지 파일 예외처리 - 에러로그
         /*
          * 이미지 주소 받아오기

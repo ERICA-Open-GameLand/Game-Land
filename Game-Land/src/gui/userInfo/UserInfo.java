@@ -27,7 +27,7 @@ public class UserInfo {
         userAge = age;
 
 
-        gameCoins = 0; // 게임런처 초기 코인 10개
+        gameCoins = 10; // 게임런처 초기 코인 10개
         /*
             유저 게임런처 처음 실행 시
             게임 정보 Default 값
