@@ -17,9 +17,9 @@ public class UserInfo {
     public int blackjeckChips;
 
     // 초 단위로 저장되어 있음.
-    public long slidePuzzleTime;
-    public long sudokuTime;
-    public long matchingGameTime;
+    public int slidePuzzleTime;
+    public int sudokuTime;
+    public int matchingGameTime;
     
     // 생성 메소드
     public UserInfo(String name, String age){
@@ -84,10 +84,10 @@ public class UserInfo {
 
     // 슬라이드 퍼즐 게임 - 분 & 초 시간 가져오기 메소드
     public String[] getSlidePuzzleGameTime(){
-        long minute = slidePuzzleTime / 60;
-        long second = slidePuzzleTime % 60;
-        String minute_str = Long.toString(minute);
-        String second_str = Long.toString(second);
+        int minute = slidePuzzleTime / 60;
+        int second = slidePuzzleTime % 60;
+        String minute_str = Integer.toString(minute);
+        String second_str = Integer.toString(second);
 
         String gameTime[] = new String[2];
         gameTime[0] = minute_str;
@@ -103,10 +103,10 @@ public class UserInfo {
 
     // 스도쿠 - 분 & 초 시간 가져오기 메소드
     public String[] getSudokuTime(){
-        long minute = sudokuTime / 60;
-        long second = sudokuTime % 60;
-        String minute_str = Long.toString(minute);
-        String second_str = Long.toString(second);
+        int minute = sudokuTime / 60;
+        int second = sudokuTime % 60;
+        String minute_str = Integer.toString(minute);
+        String second_str = Integer.toString(second);
 
         String gameTime[] = new String[2];
         gameTime[0] = minute_str;
@@ -122,10 +122,10 @@ public class UserInfo {
 
     // 짝 맞추기 게임 - 분 & 시간 가져오기 메소드
     public String[] getMatchingGameTime(){
-        long minute = matchingGameTime / 60;
-        long second = matchingGameTime % 60;
-        String minute_str = Long.toString(minute);
-        String second_str = Long.toString(second);
+        int minute = matchingGameTime / 60;
+        int second = matchingGameTime % 60;
+        String minute_str = Integer.toString(minute);
+        String second_str = Integer.toString(second);
 
         String gameTime[] = new String[2];
         gameTime[0] = minute_str;

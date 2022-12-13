@@ -36,7 +36,8 @@ public class BlackjackButton extends JButton implements ActionListener {
              * TO DO
              * BlackJack 게임 객체로 전환
              */
-            System.out.println("12312312"); 
+            userInfo.gameCoins = userInfo.gameCoins - 1;
+            game_launcher_gui.gui_update();
         }
 
 

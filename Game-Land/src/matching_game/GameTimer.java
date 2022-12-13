@@ -16,6 +16,7 @@ public class GameTimer extends Thread{
 	public GameTimer(int bt, JLabel tl) {
 		best_time = bt;
 		timer_label = tl;
+		this_time = 0;
 		run = true;
 		
 		timer_label.setText("Current 00:00s");

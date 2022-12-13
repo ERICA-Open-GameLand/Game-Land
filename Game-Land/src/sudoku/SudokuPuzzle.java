@@ -2,7 +2,7 @@ package sudoku;
 
 public class SudokuPuzzle {
 
-//    public static void main(String[] args) {
-//        new SudokuWriter(new Sudoku());
-//    }
+   public void sudokuStarter() {
+       new SudokuWriter(new Sudoku());
+   }
 }

@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import gui.over.GameOverGUI;
 import gui.userInfo.UserInfo;
 import gui.userInfo.UserInfoGUI;
+import matching_game.MatchingGameStarter;
 
 public class MatchingButton extends JButton implements ActionListener {
 	
@@ -32,11 +33,17 @@ public class MatchingButton extends JButton implements ActionListener {
             new GameOverGUI();
         }
         else{
+
             /*
              * TO DO
-             * BlackJack 게임 객체로 전환
+             * MatchingGame 게임 객체로 전환
              */
             
+            // 게임 시작 시 코인 하나 소모
+            userInfo.gameCoins = userInfo.gameCoins - 1;
+            new MatchingGameStarter().startMatchingGame(userInfo, game_launcher_gui);
+            game_launcher_gui.gui_unVisible();
+
         }
 
 

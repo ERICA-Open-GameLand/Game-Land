@@ -17,7 +17,8 @@ public class GameLauncherGUI extends JFrame{
    
 
     // 필드변수 정의
-    private UserInfo userInfo;
+    private UserInfo userInfo; // 유저 정보 객체
+    private JLabel coinText_JLabel;
 
     // 생성 메소드
     public GameLauncherGUI(UserInfo u) throws IOException{
@@ -49,6 +50,7 @@ public class GameLauncherGUI extends JFrame{
         JLabel coinText = new JLabel("코인 : " + userInfo.getGameLauncherCoin() + "개");
         coinText.setFont(new Font("Aharoni 굵게", Font.BOLD, 30));
         coinText.setBorder(BorderFactory.createEmptyBorder(0,0,0,370));
+        coinText_JLabel = coinText; // Coins 텍스트 필드변수로 저장
         p_gameLauncherGUI_coins_mypageBtn.add(coinText);
 
 
@@ -181,7 +183,7 @@ public class GameLauncherGUI extends JFrame{
 
     // gui 업데이트
     public void gui_update(){
-
+        coinText_JLabel.setText("코인 : " + userInfo.getGameLauncherCoin() + "개");
     }
 
 

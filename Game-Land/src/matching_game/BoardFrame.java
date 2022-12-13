@@ -123,7 +123,5 @@ public class BoardFrame extends JFrame {
 			JOptionPane.showMessageDialog(null, "Game Over");
 			starter.setTime(timer.getNumberBestTime());
 		}
-		System.exit(0);
-		
 	}
 }

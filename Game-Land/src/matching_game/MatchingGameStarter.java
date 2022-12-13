@@ -20,7 +20,8 @@ public class MatchingGameStarter {
 	public void startMatchingGame(UserInfo us,GameLauncherGUI g) {
 		user_info = us;
 		gui = g;
-		frame = new BoardFrame(Long.valueOf(Optional.ofNullable(user_info.matchingGameTime).orElse(0L)).intValue(), this);
+		int time = Long.valueOf(Optional.ofNullable(user_info.matchingGameTime).orElse((int) 0L)).intValue();
+		frame = new BoardFrame(time, this);
 	}
 	public void setTime(int i) {
 		user_info.matchingGameTime = i;
