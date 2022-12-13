@@ -10,7 +10,6 @@ public class BoardFrame extends JFrame {
 	
 	private GameTimer timer; // 타이머 객체 (시간을 관리하고 포멧을 리턴)
 	private MatchingGameStarter starter;
-//	private JLabel current_time; // 시간 라벨 
 	private PieceButton[][] board;
 	private int row, col; // 가로세로게임 행, 열 갯수 (추가 가능 확장가)
 	private int first_row, first_col; // 첫번째로 고른 row, col  만약 아무것도 선택되지 않았다면 -1 의 값을 가짐 
@@ -74,7 +73,7 @@ public class BoardFrame extends JFrame {
 	/** 
 	 * 시간 체크 시작 및 1초(1000ms)마다 업데이
 	 */
-	public void timerStart() { 
+	public void timerStart() {
 		timer.start();
 	}
 	private void endGame() {
@@ -108,7 +107,6 @@ public class BoardFrame extends JFrame {
 	public void exitGame() { 
 		if (timer.getNumberTime() != 0)
 			endGame();
-		System.out.println(timer.getNumberTime());
 		if(opened_piece >= 16) {
 			if(timer.getNumberBestTime() < timer.getNumberTime() && timer.getNumberBestTime() != 0) {
 				JOptionPane.showMessageDialog(null, "걸린 시간 - "+ timer.getTime());

@@ -25,6 +25,7 @@ public class GameTimer extends Thread{
 	public void run() {
 		while (run) {
 			try {
+				timer_label.setText("Current "+getTime());
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

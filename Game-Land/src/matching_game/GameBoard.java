@@ -45,7 +45,6 @@ public class GameBoard {
             temp = twins[index];
             twins[index] = twins[i];
             twins[i] = temp;
-            System.out.println(twins[i]);
         }
         return twins;
     }
