@@ -31,7 +31,7 @@ public class GameLauncherGUI extends JFrame{
         JPanel p_gameLauncherGUI_coins_mypageBtn = new JPanel(new FlowLayout());
         
         // 패널 요소 1. 코인 이미지
-        File coinImgFile = new File("Game-Land/Game-Land/src/gui/image/dollar.png");
+        File coinImgFile = new File("src/gui/image/dollar.png");
         BufferedImage coinImg = ImageIO.read(coinImgFile);
 
         
