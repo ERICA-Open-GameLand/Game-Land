@@ -114,7 +114,7 @@ public class StartGUI extends JFrame {
         JButton startButton = new StartButton("Start", this);
 
         // 버튼 색상 설정
-        startButton.setBackground(Color.red);
+        startButton.setBackground(new Color(189,215,238));
         startButton.setOpaque(true);
         startButton.setBorderPainted(false);
         // 버튼 폰트 설정

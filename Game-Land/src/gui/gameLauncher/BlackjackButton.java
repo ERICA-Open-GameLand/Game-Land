@@ -5,9 +5,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import blackjack.BlackjackStarter;
 import gui.over.GameOverGUI;
 import gui.userInfo.UserInfo;
 import gui.userInfo.UserInfoGUI;
+import matching_game.MatchingGameStarter;
 
 public class BlackjackButton extends JButton implements ActionListener {
 	
@@ -37,6 +39,7 @@ public class BlackjackButton extends JButton implements ActionListener {
              * BlackJack 게임 객체로 전환
              */
             userInfo.gameCoins = userInfo.gameCoins - 1;
+            new BlackjackStarter().blackjackstart(userInfo, game_launcher_gui);
             game_launcher_gui.gui_update();
         }
 

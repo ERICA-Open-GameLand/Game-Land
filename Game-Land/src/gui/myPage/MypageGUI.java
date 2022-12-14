@@ -91,7 +91,7 @@ public class MypageGUI extends JFrame{
         JButton mypageCheckButton = new MypageCheckButton("확인", gameLauncher_gui, this);
         
         // 버튼 색상 설정
-        mypageCheckButton.setBackground(Color.red);
+        mypageCheckButton.setBackground(new Color(189,215,238));
         mypageCheckButton.setOpaque(true);
         mypageCheckButton.setBorderPainted(false);
         

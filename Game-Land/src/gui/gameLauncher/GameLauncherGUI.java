@@ -58,7 +58,7 @@ public class GameLauncherGUI extends JFrame{
         JButton mypage_btn = new GameLauncherMypageButton("마이페이지", userInfo, this);
 
         // 버튼 색상 설정
-        mypage_btn.setBackground(Color.red);
+        mypage_btn.setBackground(new Color(189,215,238));
         mypage_btn.setOpaque(true);
         mypage_btn.setBorderPainted(false);
         
@@ -98,7 +98,7 @@ public class GameLauncherGUI extends JFrame{
         // 패널 요소 2. 게임 버튼 (블랙잭, 슬라이드 퍼즐 게임, 스도쿠, 짝 맞추기 게임)
         JButton blackjack_btn = new BlackjackButton("게임시작", userInfo, this);
         // 버튼 색상 설정
-        blackjack_btn.setBackground(Color.red);
+        blackjack_btn.setBackground(new Color(166,225,228));
         blackjack_btn.setOpaque(true);
         blackjack_btn.setBorderPainted(false);
     
@@ -109,7 +109,7 @@ public class GameLauncherGUI extends JFrame{
 
         JButton slidePuzzle_btn = new SlidePuzzleButton("게임시작", userInfo, this);
         // 버튼 색상 설정
-        slidePuzzle_btn.setBackground(Color.red);
+        slidePuzzle_btn.setBackground(new Color(215,203,225));
         slidePuzzle_btn.setOpaque(true);
         slidePuzzle_btn.setBorderPainted(false);
     
@@ -119,7 +119,7 @@ public class GameLauncherGUI extends JFrame{
 
         JButton sudoku_btn = new SudokuButton("게임시작", userInfo, this);
         // 버튼 색상 설정
-        sudoku_btn.setBackground(Color.red);
+        sudoku_btn.setBackground(new Color(199,229,199));
         sudoku_btn.setOpaque(true);
         sudoku_btn.setBorderPainted(false);
     
@@ -129,7 +129,7 @@ public class GameLauncherGUI extends JFrame{
 
         JButton matching_btn = new MatchingButton("게임시작", userInfo, this);
         // 버튼 색상 설정
-        matching_btn.setBackground(Color.red);
+        matching_btn.setBackground(new Color(189,215,238));
         matching_btn.setOpaque(true);
         matching_btn.setBorderPainted(false);
     

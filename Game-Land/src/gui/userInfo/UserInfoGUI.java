@@ -114,7 +114,7 @@ public class UserInfoGUI extends JFrame {
         JButton checkButton = new UserInfoButton("완료", this);
 
         // 버튼 색상 설정
-        checkButton.setBackground(Color.red);
+        checkButton.setBackground(new Color(189,215,238));
         // 버튼 폰트 설정
         checkButton.setFont(new Font("Aharoni 굵게", Font.BOLD, 20));
         // 버튼 텍스트 크기 설정

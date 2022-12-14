@@ -1,3 +1,4 @@
+package blackjack;
 public class Card {
 
     public static final String SPADES = "spades";

@@ -1,3 +1,5 @@
+package blackjack;
+
 public class CardDeck {
 
     private int card_count; // 남은 카드 수

@@ -1,3 +1,4 @@
+package blackjack;
 
 import java.awt.*;
 import javax.swing.*;
@@ -35,24 +36,15 @@ public class BlackjackFrame extends JFrame{
 	private JLabel[] d_cardranklabel = new JLabel[max_cards];
 	private JLabel[] d_cardsuitlabel = new JLabel[max_cards];
 	
-	//private UserInfo user;
-	private int chips;
 	
-	/*public BlackjackFrame(UserInfo u,BlackjackStarter b) {
+	public BlackjackFrame(UserInfo u,BlackjackStarter b) {
 		user = u;
 		starter = b;
-		hand_player = new HumanPlayer(max_cards,n);
+		hand_player = new HumanPlayer(max_cards,user.getUserName());
 		hand_dealer = new ComputerPlayer(max_cards);
 		dealer = new Dealer();
 	}
-	*/
 	
-	public BlackjackFrame() {
-		hand_player = new HumanPlayer(max_cards,"user");
-		hand_dealer = new ComputerPlayer(max_cards);
-		dealer = new Dealer();
-	}
-		
 	public void manageBlackjack() {
 		
 		for(int i=0;i<max_cards;i++) {
@@ -88,7 +80,7 @@ public class BlackjackFrame extends JFrame{
 		
 		JPanel d_empty = new JPanel(new FlowLayout());
 		JLabel d_empty1 = new JLabel();
-		d_empty1.setText("x");
+		d_empty1.setText("");
 		d_empty.add(d_empty1);
 		d_panel.add(d_empty);
 		
@@ -149,8 +141,7 @@ public class BlackjackFrame extends JFrame{
 		
 		JPanel p_name = new JPanel(new FlowLayout());
 		JLabel p_x = new JLabel();
-		//p_x.setText(user.getUserName());
-		p_x.setText("user");
+		p_x.setText(user.getUserName());
 		p_name.add(p_x);
 		p_panel.add(p_name, "South");
 		
@@ -303,23 +294,16 @@ public class BlackjackFrame extends JFrame{
 		
 	}
 	
-	/*
 	public void resetBlackjack() {
 		this.dispose();
 		new BlackjackFrame(user,starter).manageBlackjack();
-		
-	}
-	*/
-	public void resetBlackjack() {
-		this.dispose();
-		new BlackjackFrame().manageBlackjack();
 		
 	}
 	
 	public void exitProcedure() {
 		this.dispose();
 		if(hand_player.chips() >= 0) {
-			//starter.returncoin(hand_player.chips());
+			starter.returncoin(hand_player.chips(), this);
 		}
 	}
 

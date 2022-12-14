@@ -47,7 +47,7 @@ public class GameOverGUI extends JFrame {
         JButton gameOver_btn = new JButton("게임런처 종료");
 
         // 버튼 색상 설정
-        gameOver_btn.setBackground(Color.red);
+        gameOver_btn.setBackground(new Color(189,215,238));
         gameOver_btn.setOpaque(true);
         gameOver_btn.setBorderPainted(false);
         

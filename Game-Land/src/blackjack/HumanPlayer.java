@@ -1,4 +1,4 @@
-import javax.swing.*;
+package blackjack;
 
 public class HumanPlayer extends CardPlayer{
 	
