@@ -39,7 +39,7 @@ public class SudokuButton extends JButton implements ActionListener {
              */
              game_launcher_gui.gui_unVisible();
              userInfo.gameCoins = userInfo.gameCoins - 1;
-            new SudokuPuzzle().sudokuStarter();
+            new SudokuPuzzle().sudokuStarter(userInfo, game_launcher_gui);
         }
 
 

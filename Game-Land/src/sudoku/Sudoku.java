@@ -8,7 +8,7 @@ public class Sudoku {
     public void saveTime(int t){ time = t; }
 	private SudokuPiece[][]  sudoku_puzzle_board;
     private int[][] solution = new int[9][9];
-    private int hole_count = 36;
+    private int hole_count = 1;
     private int[][] puzzle_board = new int[9][9];
     int[] count_number = new int[9];
 
@@ -18,7 +18,7 @@ public class Sudoku {
     public Sudoku() {
         createSolutionBoard();
         sudoku_puzzle_board = new SudokuPiece[9][9];
-        createPuzzleBoard(hole_count);
+        createPuzzleBoard(27);
         for(int i=0; i<9; i++) count_number[i] = 0;
         countNum();
         for(int i=0; i<9; i++) {
@@ -143,7 +143,15 @@ public class Sudoku {
      */
     private void createPuzzleBoard(int count) {
         // solution 보드를 그대로 puzzle_board에 복제한다.
-    	puzzle_board = solution;
+
+
+        // 2차원 배열 복제
+        // for(int i=0; i<9; i++){
+        // System.arraycopy(solution[i], 0, puzzle_board[i], 0, solution[i].length);
+        // }
+        puzzle_board = solution;
+        
+        
         // 무작위로 빈칸을 선정한다. 빈칸은 구별을 위해서 0으로 채운다.
         // new Random().nextInt(n) 메소드를 호출하면
         // 0~n-1 범위의 정수 중에서 무작위로 하나를 고를 수 있다.

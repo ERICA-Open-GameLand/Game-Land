@@ -1,11 +1,17 @@
 package sudoku;
 
+import gui.gameLauncher.GameLauncherGUI;
+import gui.over.GameOverGUI;
+import gui.userInfo.UserInfo;
+
 import java.awt.*;
 import javax.swing.*;
 
 public class SudokuWriter extends JFrame {
 
     private Sudoku sudoku;
+    private UserInfo userinfo;
+    private GameLauncherGUI gl_gui;
     private SudokuButton[][] button_board;
     private NumberButton[] numbers;
     
@@ -15,8 +21,8 @@ public class SudokuWriter extends JFrame {
     
     private final int SIZE = 550;
 
-    public SudokuWriter(Sudoku s) {
-        sudoku = s;
+    public SudokuWriter(Sudoku s, UserInfo u, GameLauncherGUI g) {
+        sudoku = s; userinfo = u; gl_gui = g;
         button_board = new SudokuButton[9][9];
         numbers = new NumberButton[9];
         Container cp = getContentPane();
@@ -72,6 +78,8 @@ public class SudokuWriter extends JFrame {
         setTitle("Sudoku");
         setSize(SIZE, SIZE-60);
         setVisible(true);
+        setLocationRelativeTo(null);
+        
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     
@@ -107,15 +115,30 @@ public class SudokuWriter extends JFrame {
         if(tmp_gameover) gameover = true;
     }
 
+    public void sudokuExit(int min, int sec, int time){
+        int before_min = Integer.parseInt(userinfo.getSudokuTime()[0]);
+        int before_sec = Integer.parseInt(userinfo.getSudokuTime()[1]);
+        if(before_min == 0 && before_sec == 0){
+            userinfo.sudokuTime = time;
+        }
+        else if(min < before_min) userinfo.sudokuTime = time;
+        else if(min == before_min)
+            if(sec < before_sec)userinfo.sudokuTime = time;
+        dispose();
+        gl_gui.gui_update();
+        gl_gui.gui_visible();
+    }
     public void sudokuExit(){
         dispose();
+        gl_gui.gui_update();
+        gl_gui.gui_visible();
     }
     public boolean isGameover(){ return gameover; }
 
     public void gameOver(int time, int minute, int second){
         sudoku.saveTime(time);
         JOptionPane.showMessageDialog(null, "기록 : " + (minute < 10 ? "0" + minute + ":" + (second < 10 ? "0"+second:second) : minute + ":" + (second < 10 ? "0"+second:second)));
-        sudokuExit();
+        sudokuExit(minute, second, time);
         //time 받아서 반환
     }
     

@@ -71,7 +71,7 @@ public class MypageGUI extends JFrame{
         sudoku_text.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
 
         // 패널 요소 5. 짝 맞추기 게임 진행상황 텍스트
-        JLabel matching_text = new JLabel("짝 맞추기 게임 : " + userInfo.getMatchingGameTime()[0] + "분  " + userInfo.getSudokuTime()[1] + "초");
+        JLabel matching_text = new JLabel("짝 맞추기 게임 : " + userInfo.getMatchingGameTime()[0] + "분  " + userInfo.getMatchingGameTime()[1] + "초");
         matching_text.setFont(new Font("Aharoni 굵게", Font.BOLD, 30));
         matching_text.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
 
@@ -108,6 +108,7 @@ public class MypageGUI extends JFrame{
         setTitle("소프링의 게임랜드 GUI");
         setSize(750,500);
         setVisible(true);
+        setLocationRelativeTo(null);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

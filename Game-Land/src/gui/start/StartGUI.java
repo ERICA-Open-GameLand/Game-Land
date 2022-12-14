@@ -136,6 +136,7 @@ public class StartGUI extends JFrame {
         setTitle("소프링의 게임랜드 GUI");
         setSize(750,500);
         setVisible(true);
+        setLocationRelativeTo(null);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
