@@ -18,6 +18,8 @@ public class PieceButton extends JButton implements ActionListener{
         frame= b;
         row =r;
         col = co;
+        game_start = false;
+        selected = false;
         addActionListener(this);
     }
     

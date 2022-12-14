@@ -41,7 +41,7 @@ public class MatchingButton extends JButton implements ActionListener {
             
             // 게임 시작 시 코인 하나 소모
             userInfo.gameCoins = userInfo.gameCoins - 1;
-            new MatchingGameStarter().startMatchingGame(userInfo.matchingGameTime);
+            new MatchingGameStarter().startMatchingGame(userInfo, game_launcher_gui);
             game_launcher_gui.gui_unVisible();
 
         }

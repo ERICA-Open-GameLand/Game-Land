@@ -16,6 +16,7 @@ public class GameTimer extends Thread{
 	public GameTimer(int bt, JLabel tl) {
 		best_time = bt;
 		timer_label = tl;
+		this_time = 0;
 		run = true;
 		
 		timer_label.setText("Current 00:00s");
@@ -24,6 +25,7 @@ public class GameTimer extends Thread{
 	public void run() {
 		while (run) {
 			try {
+				timer_label.setText("Current "+getTime());
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -60,7 +62,7 @@ public class GameTimer extends Thread{
 	 * @return 만약 분이나 초가 한 자리 숫자라면 앞에 '0'을 써준다 -> 02:04s
 	 */
 	private String timerFormat(int l) {
-		long min=0, sec=0;
+		int min=0, sec=0;
 		if(l >=60 ) {
 			min = l/60;
 		}
@@ -70,7 +72,7 @@ public class GameTimer extends Thread{
 	}
 	
 	// 최소 시간을 리턴한다.
-	public long bestTime() {
+	public int bestTime() {
 		return best_time;
 	}
 	
