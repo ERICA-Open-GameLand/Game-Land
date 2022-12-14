@@ -39,7 +39,7 @@ public class SlidePuzzleButton extends JButton implements ActionListener {
              */
              game_launcher_gui.gui_unVisible();
              userInfo.gameCoins = userInfo.gameCoins - 1;
-             new PuzzleStarter().slidePuzzleGameStart(userInfo.slidePuzzleTime);
+             new PuzzleStarter().slidePuzzleGameStart(userInfo,game_launcher_gui);
         }
 
 

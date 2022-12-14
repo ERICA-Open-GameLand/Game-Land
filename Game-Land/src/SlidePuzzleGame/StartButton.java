@@ -19,7 +19,6 @@ public class StartButton extends JButton implements ActionListener {
         addActionListener(this);
     }
 
-
     public void actionPerformed(ActionEvent a) {
         frame.timerStart();
         board.createPuzzleBoard();

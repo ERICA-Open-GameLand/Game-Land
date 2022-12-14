@@ -1,5 +1,9 @@
 package SlidePuzzleGame;
 
+import gui.gameLauncher.GameLauncherGUI;
+import gui.over.GameOverGUI;
+import gui.userInfo.UserInfo;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -13,8 +17,15 @@ public class PuzzleFrame extends JFrame {
     private GameTimer timer;
     private JLabel time_record; // 시간 라벨
     public Timer sTimer; // 스윙 타이머 객체 (1초에 한 번 실행)
+    private UserInfo userInfo;
+    private GameLauncherGUI launcherGUI;
 
-    public PuzzleFrame(SlidePuzzleBoard b, int best_time) {
+    private GameOverGUI overGUI;
+
+    public PuzzleFrame(UserInfo ui, GameLauncherGUI gl, SlidePuzzleBoard b, int best_time) {
+        PuzzleFrame frame = this;
+        userInfo = ui;
+        launcherGUI = gl;
         board = b;
         button_board = new PuzzleButton[4][4];
         Container cp = getContentPane();
@@ -29,8 +40,8 @@ public class PuzzleFrame extends JFrame {
 
         //스타트 버튼
         JPanel start = new JPanel(new FlowLayout());
-        ImageIcon start_img = new ImageIcon("./src/SlidePuzzleGame/image/gamestart1.png");
-        ImageIcon start_img2 = new ImageIcon("./src/SlidePuzzleGame/image/gamestart2.png");
+        ImageIcon start_img = new ImageIcon("src/SlidePuzzleGame/image/gamestart1.png");
+        ImageIcon start_img2 = new ImageIcon("src/SlidePuzzleGame/image/gamestart2.png");
         start.add(new StartButton(board, this, start_img,start_img2));
 
         //시간 표시
@@ -67,6 +78,34 @@ public class PuzzleFrame extends JFrame {
         ImageIcon exit_img = new ImageIcon("./src/SlidePuzzleGame/image/gameexit1.png");
         ImageIcon exit_img2 = new ImageIcon("./src/SlidePuzzleGame/image/gameexit2.png");
         ExitButton exit_button = new ExitButton(exit_img,exit_img2);
+
+        /**
+         * exit_button을 눌렀을 때 이벤트 처리
+         */
+        exit_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent a) {
+                if(board.gameOver()) {
+                    if (userInfo.slidePuzzleTime != 0) {
+                        userInfo.slidePuzzleTime = timer.bestTime();
+                        frame.setVisible(false);
+                        launcherGUI.setVisible(true);
+                        launcherGUI.gui_update();
+                    } else {
+                        userInfo.slidePuzzleTime = timer.thisTime();
+                        frame.setVisible(false);
+                        launcherGUI.setVisible(true);
+                        launcherGUI.gui_update();
+                    }
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "게임이 끝나지 않았습니다. \n" +
+                            " 게임은 기록되지 않습니다. ");
+                    frame.setVisible(false);
+                    launcherGUI.setVisible(true);
+                    launcherGUI.gui_update();
+                }
+            }
+        });
         exit.add(exit_button);
 
         //컨테이너에 add
@@ -100,7 +139,7 @@ public class PuzzleFrame extends JFrame {
 
     public void finish() {
         button_board[3][3].setText("DONE");
-        System.out.println(timer.this_time + "\n" + timer.best_time);
+        //System.out.println(timer.this_time + "\n" + timer.best_time);
 
     }
 

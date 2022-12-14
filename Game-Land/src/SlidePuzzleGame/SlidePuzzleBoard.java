@@ -1,5 +1,8 @@
 package SlidePuzzleGame;
 
+import gui.gameLauncher.GameLauncherGUI;
+import gui.userInfo.UserInfo;
+
 import java.util.*;
 
 public class SlidePuzzleBoard {
