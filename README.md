@@ -70,6 +70,7 @@ Member : 강제호 소프트웨어학부 2022061921</br>
 </br></br></br>
 
 # 프로젝트 와이어프레임
+![와이어 프레임](./image/Game-Land_WireFrame.jpg)
 
 
 
